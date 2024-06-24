@@ -33,6 +33,7 @@
 	<modules>
 		<module>product-management</module>
 		<module>user-service</module>
+		<module>api-gateway</module>
 	</modules>
 	<dependencies>
 		<dependency>
