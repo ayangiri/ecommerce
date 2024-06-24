@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: user-service
+  kafka:
+    bootstrap-servers: localhost:9092
+server:
+  port: 9098
+
+kafka:
+  consumer:
+    group:
+      id: userGroup
+  topics:
+    productCartAddition: productCartAddition
+
