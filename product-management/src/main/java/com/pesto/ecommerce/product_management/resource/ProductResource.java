@@ -1,7 +1,9 @@
 package com.pesto.ecommerce.product_management.resource;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.pesto.ecommerce.product_management.model.ProductSummary;
 import com.pesto.ecommerce.product_management.model.Products;
+import com.pesto.ecommerce.product_management.services.ProductCartService;
 import com.pesto.ecommerce.product_management.services.ProductListingService;
 import com.pesto.ecommerce.product_management.services.ProductPostingService;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +19,7 @@ import java.util.List;
 public class ProductResource {
     private final ProductListingService productListingService;
     private final ProductPostingService productPostingService;
+    private final ProductCartService productCartService;
 
     @GetMapping(value = "/listing", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getAllProductListing() {
@@ -40,6 +43,13 @@ public class ProductResource {
     public ResponseEntity<?> editProductInfoOfExistingProduct(@RequestBody Products products,
                                                               @PathVariable(value = "productId") String productId) {
         productPostingService.editProductInfo(products, productId);
+        return ResponseEntity.ok("Success");
+    }
+
+    @PostMapping(value = "/save/cart/{userId}/{productId}")
+    public ResponseEntity<?> saveProductToUserCart(@PathVariable(value = "userId") String userId,
+                                                   @PathVariable(value = "productId") String productId) throws JsonProcessingException {
+        productCartService.saveProductToUserCart(userId, productId);
         return ResponseEntity.ok("Success");
     }
 }

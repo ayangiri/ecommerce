@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: product-management
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: product-management
+  kafka:
+    bootstrap-servers: localhost:9092
+  main:
+    allow-bean-definition-overriding: true
+server:
+  port: 9099
+service:
+  userService:
+    userCart: http://localhost:9098/user/cart/save/%s/%s
+
+kafka:
+  topics:
+    productCartAddition: productCartAddition
