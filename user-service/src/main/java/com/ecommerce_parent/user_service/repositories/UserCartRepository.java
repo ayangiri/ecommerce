@@ -11,11 +11,11 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
+
 public interface UserCartRepository extends MongoRepository<UserProductCart,String>, CustomUserCartRepository {
     @RequiredArgsConstructor
     @Slf4j
-    class CustomUserCartRepositoryImp implements CustomUserCartRepository {
+    class CustomUserCartRepositoryImpl implements CustomUserCartRepository {
         private final MongoTemplate mongoTemplate;
 
         @Override
