@@ -1,5 +1,6 @@
 package com.ecommerce_parent.user_service.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.annotation.Id;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Data
 @Document("userCredentialsInfo")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserCredentialsInfo implements UserDetails {
     @Id
     private String id;
