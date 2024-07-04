@@ -6,6 +6,7 @@ import com.pesto.ecommerce.product_management.model.Products;
 import com.pesto.ecommerce.product_management.repository.ProductRepository;
 import com.pesto.ecommerce.product_management.services.ProductListingService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
